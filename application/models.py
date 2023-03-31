@@ -1,12 +1,27 @@
 from application.app import app, db
+from datetime import datetime
 
 
-class User(db.Model):
+# class Pomodoro_Settings():
+#    set_focused_hours = 
+
+# class Pomodoro_Cycle():
+#     
+
+class Pomodoro(db.Model):
+    ''' docstring '''
     id = db.Column(db.Integer, primary_key=True)
-    # email = db.Column(db.String(80), unique=True, nullable=False)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(120))
+    start_time = db.Column(db.DateTime, nullable=False, default=datetime.now)
+    stop_time = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
+    complete = db.Column(db.Boolean, nullable=False, default=False)
+    # pomo_cycle_id =
+    # task_id =
 
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     # email = db.Column(db.String(80), unique=True, nullable=False)
+#     username = db.Column(db.String(80), unique=True, nullable=False)
+#     password = db.Column(db.String(120))
 
 # Sample for One-many and Many-Many relationship
 # class WorkItem(db.Model):
